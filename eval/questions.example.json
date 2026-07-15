@@ -1,0 +1,6 @@
+[
+  {"question": "What accuracy did the SPECT-MPI coronary artery disease model achieve?", "expected_source": "sample_cad_spect_study.pdf"},
+  {"question": "Which model architecture was used to detect coronary artery disease?", "expected_source": "sample_cad_spect_study.pdf"},
+  {"question": "How many images were in the breast ultrasound dataset?", "expected_source": "sample_breast_ultrasound_study.pdf"},
+  {"question": "What optimiser and learning rate were used for the breast ultrasound model?", "expected_source": "sample_breast_ultrasound_study.pdf"}
+]

@@ -109,8 +109,10 @@ if not indexed:
         "<p>1. Upload one or more PDFs in the sidebar.<br>"
         "2. Click <b>Index uploaded PDFs</b>.<br>"
         "3. Ask questions here — answers come only from your documents, with page citations.</p>"
-        "<p style='color:#6b7280;margin-bottom:0'>Your answers are grounded strictly in the "
-        "files you index, so nothing from other documents can leak in.</p></div>",
+        "<p style='color:#6b7280'>Your answers are grounded strictly in the "
+        "files you index, so nothing from other documents can leak in.</p>"
+        "<p style='color:#6b7280;margin-bottom:0'>No PDFs handy? Two synthetic sample papers are in "
+        "the <code>examples/</code> folder of the repo.</p></div>",
         unsafe_allow_html=True,
     )
 else:

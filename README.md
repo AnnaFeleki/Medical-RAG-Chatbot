@@ -46,7 +46,7 @@ cp .env.example .env
 streamlit run app.py
 ```
 
-Then upload PDFs in the sidebar and click **Index uploaded PDFs**. (You can also index a folder from the CLI: put PDFs in `data/pdfs/` and run `python ingest.py`.)
+Then upload PDFs in the sidebar and click **Index uploaded PDFs** — or try the two synthetic sample papers in [`examples/`](examples) to see it work straight away. (You can also index from the CLI: `python ingest.py --pdf-dir examples`.)
 
 To use OpenAI instead, set `LLM_PROVIDER=openai` and `OPENAI_API_KEY` in `.env`. Note: if you switch provider after indexing, click **Clear index** (or delete `chroma_db/`) and re-index, because embeddings from different providers are not compatible.
 
@@ -84,13 +84,14 @@ curl -X POST http://localhost:8000/ask \
 
 ## Evaluation
 
-Retrieval quality is measurable, not vibes. `eval.py` reports **Hit-rate@k** and **MRR@k** over a small labelled question set:
+Retrieval quality is measurable, not vibes. `eval.py` reports **Hit-rate@k** and **MRR@k** over a small labelled question set. Index the sample papers, then run it:
 
 ```bash
+python ingest.py --pdf-dir examples
 python eval.py --questions eval/questions.example.json --k 4
 ```
 
-Each item maps a question to the file that should answer it. Add your own Q→source pairs to track retrieval quality as you tune chunking or embeddings.
+Each item maps a question to the file that should answer it (the included examples are pre-labelled against the two sample papers). Add your own Q→source pairs to track retrieval quality as you tune chunking or embeddings.
 
 ## Project structure
 
@@ -102,6 +103,7 @@ medical-rag-chatbot/
   rag_chain.py    Retrieval chain with citation prompt
   models.py       Provider switch (Ollama / OpenAI)
   eval.py         Retrieval evaluation (Hit-rate@k, MRR@k)
+  examples/       Two synthetic sample papers to try immediately
   data/uploads/   PDFs uploaded via the app (git-ignored)
   data/pdfs/      Optional: PDFs for CLI ingest
   chroma_db/      Vector store (created on first index; git-ignored)
