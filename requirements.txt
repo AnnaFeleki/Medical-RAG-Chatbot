@@ -1,0 +1,13 @@
+langchain>=0.3
+langchain-ollama>=0.2
+langchain-openai>=0.2
+langchain-chroma>=0.1.4
+langchain-community>=0.3
+langchain-text-splitters>=0.3
+chromadb>=0.5
+pypdf>=4.0
+streamlit>=1.37
+python-dotenv>=1.0
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
